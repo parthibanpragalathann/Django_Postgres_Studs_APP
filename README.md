@@ -1,51 +1,74 @@
 # Student result application using Django with Postgresql
 
+#### Create virtual environment and activated it.
+#### whatever any IDE your wish like pycharm, vscode and sublime
 
-##installation:
+## Requirements
+- Python - 3 and above
+- postgresql
 
-###Create virtual environment and activated it.
-###### whatever any IDE your wish like pycharm, vscode and sublime
+## installation:
+```python
+$ pip install -r requirements.txt
+```
+
+## Database migration
+
+```python
+$ python manage.py makemigrations
+$ python manage.py migrate
+```
+
+## Run server
+```python
+$ python manage.py runserver
+```
+
+## Api's
+#### Below api requests all using curl.
+
+### Get student details
+
+```bash
+curl http://127.0.0.1:8000/api/student/
+```
+
+## Create student
+
+curl -d '{"Name":"samir", "RollNumber":"21ds16", "DateofBirth": "2021-09-30"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/api/student/
+
+/api/student/pk/marks/add/
+
+### Add marks to particular student
+
+```bash
+curl -d '{"marks":87}' -H "Content-Type: application/json" -X PUT http://127.0.0.1:8000/api/student/pk/marks/add/
+```
 
 
-####$sudo pip install -r requirements.txt
+/api/student/pk/marks/
 
-##Database migration
+## Get particular student mark
 
-####$ python manage.py makemigrations
-####$ python manage.py migrate
-##Run server
-####$ python manage.py runserver
+```bash
+curl http://127.0.0.1:8000/api/student/pk/marks/
+```
 
-##Using django with postgresql databases.
 
-##Below api requsts all using curl.
+/api/student/marks/
 
-###Get student details
+## Get all students marks 
 
-####curl http://127.0.0.1:8000/api/student/
+```bash
+curl http://127.0.0.1:8000/api/student/marks/
+```
 
-####Post student details
 
-####curl -d '{"Name":"samir", "RollNumber":"21ds16", "DateofBirth": "2021-09-30"}' -H "Content-Type: application/json" -X POST http://127.0.0.1:8000/api/student/
+/api/student/results/
 
-###/api/student/pk/marks/add/
+## Get students results
 
-###Add marks to particular student
+```bash
+curl http://127.0.0.1:8000/api/student/results/
+```
 
-####curl -d '{"marks":87}' -H "Content-Type: application/json" -X PUT http://127.0.0.1:8000/api/student/pk/marks/add/
-
-###/api/student/pk/marks/
-
-##Get particular student mark
-
-####curl http://127.0.0.1:8000/api/student/pk/marks/
-
-###/api/student/marks/
-
-####Get all students marks curl http://127.0.0.1:8000/api/student/marks/
-
-###/api/student/results/
-
-##Get student results
-
-####curl http://127.0.0.1:8000/api/student/results/
