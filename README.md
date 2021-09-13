@@ -1,4 +1,4 @@
-#Student result application using Django with Postgresql
+# Student result application using Django with Postgresql
 
 
 ##installation:
